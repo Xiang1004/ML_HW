@@ -11,7 +11,7 @@ from data import TestDataset
 
 
 if __name__ == "__main__":
-    #data_path, model_type, output = sys.argv[1], sys.argv[2], sys.argv[3]
+    data_path, model_type, output = sys.argv[1], sys.argv[2], sys.argv[3]
 
     #data_path = r"C:\Users\Xiang\Desktop\ML_HW"
     #model_type = "conv"
@@ -27,6 +27,7 @@ if __name__ == "__main__":
     # TODO
     model = ConvNet()
     model.load_state_dict(torch.load('./checkpoint/%s.pth' % model.name()))
+    model.eval()
 
     #######################################################################
 
