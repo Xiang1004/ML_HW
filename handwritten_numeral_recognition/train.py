@@ -11,10 +11,10 @@ import numpy as np
 
 if __name__ == "__main__":
     # Specifiy data folder path and model type(fully/conv)
-    # folder, model_type = sys.argv[1], sys.argv[2]
+    folder, model_type = sys.argv[1], sys.argv[2]
 
-    folder = r"C:\Users\Xiang\Desktop\ML_HW\hw2\hw2_data\p2"
-    model_type = "conv"
+    #folder = r"C:\Users\Xiang\Desktop\ML_HW\hw2\hw2_data\p2"
+    #model_type = "conv"
 
     # Get data loaders of training set and validation set
     train_loader, val_loader = get_dataloader(folder, batch_size=32)
@@ -77,10 +77,10 @@ if __name__ == "__main__":
                 ave_loss = total_loss / batch
                 print('Training batch index: {}, train loss: {:.6f}, acc: {:.3f}'.format(
                     batch, ave_loss, acc))
+
         ################
         ## Validation ##
         ################
-
         model.eval()
         # TODO
         v_correct_cnt, v_total_loss, v_total_cnt = 0, 0, 0
@@ -99,7 +99,7 @@ if __name__ == "__main__":
                     v_acc = v_correct_cnt / v_total_cnt
                     v_ave_loss = v_total_loss / v_batch
                     print('Eval batch index: {}, eval loss: {:.6f}, eval_acc: {:.3f}'.format(v_batch, v_ave_loss, v_acc))
-        eval_acc.append(v_acc)
+        # eval_acc.append(v_acc)
 
         model.train()
     print(eval_acc)

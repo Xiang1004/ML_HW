@@ -12,13 +12,14 @@ class ConvNet(nn.Module):
         self.relu1 = nn.ReLU()  # Activation
         self.maxpool1 = nn.MaxPool2d(kernel_size=2)  # output_shape=(64,12,12)
         # Convolution 2
-        self.cnn2 = nn.Conv2d(in_channels=128, out_channels=256, kernel_size=5, stride=1,padding=0)  # output_shape=(128,8,8)
+        self.cnn2 = nn.Conv2d(in_channels=128, out_channels=256, kernel_size=3, stride=1,padding=0)  # output_shape=(128,8,8)
         self.relu2 = nn.ReLU()  # Activation
         self.maxpool2 = nn.MaxPool2d(kernel_size=2)  # output_shape=(128,4,4)
-
+        # Convolution 2
+        self.cnn3 = nn.Conv2d(in_channels=256, out_channels=512, kernel_size=2, stride=1,padding=0)  # output_shape=(128,8,8)
         self.relu3 = nn.ReLU()  # Activation
         self.maxpool3 = nn.MaxPool2d(kernel_size=2)  # output_shape=(128,2,2)
-        self.fc1 = nn.Linear(256 * 2 * 2, 10)
+        self.fc1 = nn.Linear(512 * 2 * 2, 10)
 
     # 再定義執行順序
     def forward(self, x):
@@ -28,6 +29,7 @@ class ConvNet(nn.Module):
         out = self.cnn2(out)
         out = self.relu2(out)
         out = self.maxpool2(out)
+        out = self.cnn3(out)
         out = self.relu3(out)
         out = self.maxpool3(out)
         out = out.view(out.size(0), -1)  # flatten the tensor (樣本數量, -1自動確定維度)

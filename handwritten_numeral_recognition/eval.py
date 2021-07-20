@@ -13,9 +13,9 @@ from data import TestDataset
 if __name__ == "__main__":
     #data_path, model_type, output = sys.argv[1], sys.argv[2], sys.argv[3]
 
-    data_path = r"C:\Users\Xiang\Desktop\ML_HW"
-    model_type = "conv"
-    output = "test.csv"
+    #data_path = r"C:\Users\Xiang\Desktop\ML_HW"
+    #model_type = "conv"
+    #output = "test.csv"
 
     if model_type == 'conv':
         model = ConvNet()
@@ -39,7 +39,6 @@ if __name__ == "__main__":
     # Load data
     trans = transforms.Compose([transforms.Grayscale(),transforms.ToTensor(), transforms.Normalize((0.5,), (1.0,))])
     test_set = TestDataset(data_path, transform=trans)
-    print(test_set)
     print('Length of Testing Set:', len(test_set))
     test_loader = DataLoader(dataset=test_set, batch_size=1, shuffle=False)
 
