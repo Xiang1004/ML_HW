@@ -8,17 +8,17 @@ class ConvNet(nn.Module):
         super(ConvNet, self).__init__()
         # TODO
         # Convolution 1 , input_shape=(1,28,28)
-        self.cnn1 = nn.Conv2d(in_channels=1, out_channels=128, kernel_size=5, stride=1,padding=0)  # output_shape=(64,24,24)
+        self.cnn1 = nn.Conv2d(in_channels=1, out_channels=128, kernel_size=5, stride=1,padding=0)  # output_shape=(128,24,24)
         self.relu1 = nn.ReLU()  # Activation
-        self.maxpool1 = nn.MaxPool2d(kernel_size=2)  # output_shape=(64,12,12)
+        self.maxpool1 = nn.MaxPool2d(kernel_size=2)  # output_shape=(128,12,12)
         # Convolution 2
-        self.cnn2 = nn.Conv2d(in_channels=128, out_channels=256, kernel_size=3, stride=1,padding=0)  # output_shape=(128,8,8)
+        self.cnn2 = nn.Conv2d(in_channels=128, out_channels=256, kernel_size=3, stride=1,padding=0)  # output_shape=(256,10,10)
         self.relu2 = nn.ReLU()  # Activation
-        self.maxpool2 = nn.MaxPool2d(kernel_size=2)  # output_shape=(128,4,4)
+        self.maxpool2 = nn.MaxPool2d(kernel_size=2)  # output_shape=(256,5,5)
         # Convolution 2
-        self.cnn3 = nn.Conv2d(in_channels=256, out_channels=512, kernel_size=2, stride=1,padding=0)  # output_shape=(128,8,8)
+        self.cnn3 = nn.Conv2d(in_channels=256, out_channels=512, kernel_size=2, stride=1,padding=0)  # output_shape=(512,4,4)
         self.relu3 = nn.ReLU()  # Activation
-        self.maxpool3 = nn.MaxPool2d(kernel_size=2)  # output_shape=(128,2,2)
+        self.maxpool3 = nn.MaxPool2d(kernel_size=2)  # output_shape=(512,2,2)
         self.fc1 = nn.Linear(512 * 2 * 2, 10)
 
     # 再定義執行順序
