@@ -190,7 +190,7 @@ class NeuralNet(nn.Module):
             nn.Dropout(0.1),
             nn.SiLU(),
             nn.Linear(32, 1),
-            nn.SiLU()
+            nn.SiLU(),
         )
 
         # Mean squared error loss
